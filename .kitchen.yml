@@ -1,0 +1,14 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: debian-8.1
+
+suites:
+  - name: source
+    run_list:
+      - recipe[runc::source]
