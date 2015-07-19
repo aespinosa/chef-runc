@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: runc
-# Recipe:: default
+# Attribute:: default
 #
 # Copyright (C) 2015 Allan Espinosa
 #
@@ -18,7 +18,4 @@
 # limitations under the License.
 #
 
-remote_file '/usr/local/bin/runc' do
-  source node['runc']['binary_url']
-  mode '0755'
-end
+default['runc']['binary_url'] = 'https://github.com/aespinosa/cookbook-runc/releases/download/v0.1.0/runc-0.0.2'

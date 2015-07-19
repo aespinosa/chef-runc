@@ -1,41 +1,19 @@
 # runc-cookbook
 
-TODO: Enter the cookbook description here.
+Install and deploy runc to create an open container host.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+* Debian 8.1 Jessie
 
 ## Attributes
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['runc']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+* node['runc']['binary_url'] - Download location of the runc binary
 
-## Usage
+## Recipes
 
-### runc::default
-
-Include `runc` in your node's `run_list`:
-
-```json
-{
-  "run_list": [
-    "recipe[runc::default]"
-  ]
-}
-```
+* default - install a pre-compiled binary of runc.
+* source - download, build and install runc from source.
 
 ## License
 
