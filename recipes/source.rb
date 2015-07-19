@@ -19,3 +19,18 @@
 #
 node.set['go']['scm'] = false
 include_recipe 'golang'
+
+# FIXME: does this need to be a fancy LWRP?
+script 'build and deploy runc' do
+  interpreter '/bin/bash'
+  cwd '/opt/go'
+  code <<-eos
+    source /etc/profile.d/golang.sh
+    mkdir -p /opt/go/src/github.com/opencontainers/runc
+    cd /opt/go/src/github.com/opencontainers/runc
+    curl -L  https://github.com/opencontainers/runc/archive/v0.0.2.tar.gz | tar -xvz --strip-components=1
+    make
+    make install
+  eos
+  creates '/usr/local/bin/runc'
+end
